@@ -96,6 +96,23 @@
     </div>
 </div>
 
+<div id="addFolderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden backdrop-blur-sm animate-fade-in">
+    <div class="bg-white dark:bg-[#18181B] border border-gray-200 dark:border-gray-800 w-full max-w-md p-6 rounded-xl shadow-xl mx-4 relative">
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Buat Folder Baru</h3>
+        <form action="{{ route('folders.store') }}" method="POST">
+            @csrf
+            <div class="mb-5">
+                <input type="text" name="name" placeholder="Masukkan nama folder..." required
+                    class="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-transparent text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none dark:text-white font-medium placeholder-gray-400">
+            </div>
+            <div class="flex justify-end gap-3">
+                <button type="button" onclick="document.getElementById('addFolderModal').classList.add('hidden')" class="px-4 py-2 text-sm font-semibold text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer transition-colors">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-sm cursor-pointer transition-colors">Buat Folder</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div id="editFolderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden backdrop-blur-sm animate-fade-in">
     <div class="bg-white dark:bg-[#18181B] border border-gray-200 dark:border-gray-800 w-full max-w-md p-6 rounded-xl shadow-xl mx-4">
         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Ubah Nama Folder</h3>
@@ -107,8 +124,8 @@
                     class="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-transparent text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none dark:text-white font-medium">
             </div>
             <div class="flex justify-end gap-3">
-                <button type="button" onclick="document.getElementById('editFolderModal').classList.add('hidden')" class="px-4 py-2 text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">Batal</button>
-                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-sm cursor-pointer">Simpan Perubahan</button>
+                <button type="button" onclick="document.getElementById('editFolderModal').classList.add('hidden')" class="px-4 py-2 text-sm font-semibold text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer transition-colors">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-sm cursor-pointer transition-colors">Simpan Perubahan</button>
             </div>
         </form>
     </div>

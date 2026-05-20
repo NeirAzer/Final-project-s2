@@ -138,7 +138,7 @@
                     <div class="w-8 h-8 flex items-center justify-center rounded-lg {{ request()->routeIs('notes.index') || request()->routeIs('notes.create') ? 'bg-white/20' : 'bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700' }} transition-colors">
                         <i class="fa-regular fa-file-lines"></i>
                     </div>
-                    Dokumen
+                    Catatan
                 </a>
                 
                 <a href="{{ route('folders.index') }}" 
@@ -149,7 +149,7 @@
                     <div class="w-8 h-8 flex items-center justify-center rounded-lg {{ request()->routeIs('folders.index') || request()->routeIs('folders.show') ? 'bg-white/20' : 'bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700' }} transition-colors">
                         <i class="fa-solid fa-folder-open"></i>
                     </div>
-                    Direktori
+                    Folder
                 </a>
                 
                 <div class="pt-6 pb-2">
