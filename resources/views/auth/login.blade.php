@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -67,23 +67,27 @@
         .dark .ambient-mesh::after { background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%); }
     </style>
 </head>
-<body class="bg-base-light text-gray-900 dark:bg-base-dark dark:text-gray-100 antialiased min-h-screen flex items-center justify-center p-6 selection:bg-gray-200 dark:selection:bg-gray-800">
+<body class="bg-base-light text-gray-900 dark:bg-base-dark dark:text-gray-100 antialiased min-h-screen flex items-center justify-center p-6 selection:bg-gray-200 dark:selection:bg-gray-800 relative">
 
     <div class="ambient-mesh"></div>
 
-    <div class="absolute top-6 right-6">
-        <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 dark:bg-black/50 border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-all backdrop-blur-sm cursor-pointer">
+    <div class="absolute top-6 left-6 z-10">
+        <a href="{{ url('/') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-black/50 border border-gray-200 dark:border-gray-800 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-900 transition-all backdrop-blur-sm shadow-sm">
+            <i class="fa-solid fa-arrow-left text-xs"></i> Kembali
+        </a>
+    </div>
+
+    <div class="absolute top-6 right-6 z-10">
+        <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 dark:bg-black/50 border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-900 transition-all backdrop-blur-sm shadow-sm cursor-pointer">
             <i id="theme-toggle-dark-icon" class="fa-solid fa-moon hidden text-sm"></i>
             <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden text-sm"></i>
         </button>
     </div>
 
-    <div class="w-full max-w-md bg-white/70 dark:bg-[#0A0A0A]/70 backdrop-blur-xl border border-white/80 dark:border-gray-800/80 rounded-3xl p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fade-in-up">
+    <div class="w-full max-w-md bg-white/70 dark:bg-[#0A0A0A]/70 backdrop-blur-xl border border-white/80 dark:border-gray-800/80 rounded-3xl p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fade-in-up relative z-10">
         
         <div class="text-center mb-8">
-            <a href="{{ url('/') }}" class="inline-flex items-center gap-2 mb-6 group">
-                <span class="text-2xl font-bold tracking-tighter text-gray-900 dark:text-white">Knote</span>
-            </a>
+            <span class="text-2xl font-bold tracking-tighter text-gray-900 dark:text-white block mb-6">Knote</span>
             <h1 class="text-2xl font-serif italic text-gray-900 dark:text-white mb-2">Selamat Datang Kembali</h1>
             <p class="text-sm text-gray-500 dark:text-gray-400 font-light">Silakan masuk untuk melanjutkan ke ruang kerja Anda.</p>
         </div>
@@ -94,27 +98,24 @@
             <div>
                 <label for="email" class="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Alamat Email</label>
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                    class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50 focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:outline-none transition-all dark:text-white text-sm">
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50 focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:outline-none transition-all dark:text-white text-sm shadow-sm">
                 @error('email')
                     <p class="text-xs text-red-500 mt-2">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
-                <div class="flex items-center justify-between mb-2">
-                    <label for="password" class="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Kata Sandi</label>
-                    <a href="#" class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">Lupa sandi?</a>
-                </div>
+                <label for="password" class="block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-2">Kata Sandi</label>
                 <input id="password" type="password" name="password" required
-                    class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50 focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:outline-none transition-all dark:text-white text-sm">
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50 focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:outline-none transition-all dark:text-white text-sm shadow-sm">
                 @error('password')
                     <p class="text-xs text-red-500 mt-2">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="flex items-center pt-2">
-                <input id="remember_me" type="checkbox" name="remember" class="w-4 h-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900 dark:border-gray-700 dark:bg-black dark:checked:bg-white cursor-pointer">
-                <label for="remember_me" class="ml-2 text-sm text-gray-500 dark:text-gray-400 cursor-pointer">Ingat sesi saya</label>
+                <input id="remember_me" type="checkbox" name="remember" class="w-4 h-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900 dark:border-gray-700 dark:bg-black dark:checked:bg-white cursor-pointer transition-colors">
+                <label for="remember_me" class="ml-2 text-sm text-gray-500 dark:text-gray-400 cursor-pointer select-none">Ingat sesi saya</label>
             </div>
 
             <button type="submit" class="w-full py-3.5 mt-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl text-sm font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
