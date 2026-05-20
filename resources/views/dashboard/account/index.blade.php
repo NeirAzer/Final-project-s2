@@ -66,9 +66,9 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Alamat Email</label>
+                            <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Alamat Email</label>
                             <input type="email" name="email" value="{{ old('email', auth()->user()->email) }}" required
-                                class="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all dark:text-white text-sm shadow-sm cursor-not-allowed" readonly title="Alamat email tidak dapat diubah">
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#18181B] focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all dark:text-white text-sm shadow-sm">
                             @error('email')
                                 <p class="text-xs text-red-500 mt-1.5"><i class="fa-solid fa-triangle-exclamation"></i> {{ $message }}</p>
                             @enderror
